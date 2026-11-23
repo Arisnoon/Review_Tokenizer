@@ -5,6 +5,8 @@
 
 ทุกตัวเลขใน repo นี้วัดเมื่อ 23 พฤศจิกายน 2026 ด้วย `iapp-ai` 2.0.0 และสร้างซ้ำได้ด้วยสคริปต์ที่อยู่ที่นี่
 
+**บทความรีวิวฉบับเต็ม:** [รีวิวตัวตัดคำภาษาไทย LATTE WordSeg Lite บน Medium](https://medium.com/@arisa.ump/%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B8%84%E0%B8%B3%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2-latte-wordseg-lite-%E0%B8%81%E0%B8%B1%E0%B8%99-%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7%E0%B8%A1%E0%B8%B2%E0%B8%94%E0%B8%B9%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B9%88%E0%B8%B2-%E0%B8%9E%E0%B8%AD%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99-hardware-batch-size-98fea4ad8b95)
+
 ## สารบัญ
 
 - [สิ่งที่ทดสอบ](#สิ่งที่ทดสอบ)
@@ -301,6 +303,7 @@ Review_Tokenizer/
 
 ## เครดิตและลิงก์
 
+- บทความของการทดลองนี้: [รีวิวตัวตัดคำภาษาไทย LATTE WordSeg Lite บน Medium](https://medium.com/@arisa.ump/%E0%B8%A3%E0%B8%B5%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%95%E0%B8%B1%E0%B8%A7%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B8%84%E0%B8%B3%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%84%E0%B8%97%E0%B8%A2-latte-wordseg-lite-%E0%B8%81%E0%B8%B1%E0%B8%99-%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7%E0%B8%A1%E0%B8%B2%E0%B8%94%E0%B8%B9%E0%B8%95%E0%B9%88%E0%B8%AD%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%A7%E0%B9%88%E0%B8%B2-%E0%B8%9E%E0%B8%AD%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%99-hardware-batch-size-98fea4ad8b95)
 - Model: [OpenThai2.0-LATTE-WordSeg-Lite](https://huggingface.co/iapp/OpenThai2.0-LATTE-WordSeg-Lite) โดย OpenThai และ iApp Technology (model และ dictionary เป็น CC BY-SA 4.0)
 - Benchmark: [OpenThai2.0-WordSeg-Benchmark](https://huggingface.co/datasets/iapp/OpenThai2.0-WordSeg-Benchmark) ซึ่งเราใช้ตัวคิดคะแนนและชุดทดสอบ 4 ชุด
 - โปรแกรม: [iapp-ai บน PyPI](https://pypi.org/project/iapp-ai)
