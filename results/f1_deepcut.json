@@ -1,0 +1,29 @@
+{
+ "system": "deepcut 0.7.0.0",
+ "sets": {
+  "talpco_tha": {
+   "word_f1": 91.8,
+   "boundary_f1": 95.97,
+   "lines": 1368,
+   "published_word_f1": null
+  },
+  "tud": {
+   "word_f1": 85.5,
+   "boundary_f1": 93.97,
+   "lines": 363,
+   "published_word_f1": 85.5014
+  },
+  "pud": {
+   "word_f1": 85.62,
+   "boundary_f1": 94.01,
+   "lines": 1000,
+   "published_word_f1": 85.6202
+  },
+  "ws160": {
+   "word_f1": 83.13,
+   "boundary_f1": 91.39,
+   "lines": 160,
+   "published_word_f1": 83.1311
+  }
+ }
+}

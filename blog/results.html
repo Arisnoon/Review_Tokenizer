@@ -1,0 +1,144 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ผลการทดลอง LATTE WordSeg Lite</title><style>
+body { max-width: 900px; margin: 32px auto; padding: 0 16px; font-family: "Leelawadee UI", "Segoe UI", Tahoma, sans-serif;
+       font-size: 16px; line-height: 1.6; color: #000000; background: #ffffff; }
+h1 { font-size: 24px; margin-bottom: 4px; }
+h2 { font-size: 18px; margin: 34px 0 6px; }
+.sub { margin-top: 0; }
+.howto { border: 1px dashed #999999; padding: 8px 14px; font-size: 14px; }
+table { border-collapse: collapse; }
+th, td { border: 1px solid #999999; padding: 6px 10px; vertical-align: top; text-align: left; }
+.note { font-size: 14px; margin: 6px 0 0; }
+.bar { margin: 8px 0 0; }
+button { font: inherit; font-size: 14px; padding: 4px 12px; margin-right: 6px; cursor: pointer; }
+.done { font-size: 14px; margin-left: 4px; }
+</style></head><body><h1>ผลการทดลอง: LATTE WordSeg Lite</h1><p class="sub">วัดบน AMD Ryzen 7 5700G (ใช้ 1 thread) และ NVIDIA GeForce RTX 3080 ด้วย iapp-ai 2.0.0 เมื่อ 23 พฤศจิกายน 2026</p><div class="howto"><strong>วิธีคัดลอก</strong><br>กด “คัดลอกตาราง” แล้ววางในเว็บหรือเอกสารที่รองรับตาราง เช่น Google Docs หรือ Notion ตารางจะยังเป็นตาราง<br>ถ้าเว็บนั้นเขียนด้วย Markdown ให้กด “คัดลอกเป็น Markdown”<br>Medium ไม่มีตารางในตัว ตารางที่วางลงไปจะกลายเป็นข้อความทีละบรรทัด</div><section><h2>เครื่องที่ใช้ทดสอบ</h2><table><thead><tr><th>รายการ</th><th>รายละเอียด</th></tr></thead><tbody><tr><td>CPU</td><td>AMD Ryzen 7 5700G (8 cores / 16 threads) ทดสอบโดยใช้ 1 thread</td></tr><tr><td>การ์ดจอ</td><td>NVIDIA GeForce RTX 3080 12 GB</td></tr><tr><td>RAM</td><td>16 GB</td></tr><tr><td>ระบบ</td><td>Windows 11, Python 3.11.9</td></tr><tr><td>โปรแกรม</td><td>iapp-ai 2.0.0, ONNX Runtime 1.32.0</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| รายการ | รายละเอียด |
+|---|---|
+| CPU | AMD Ryzen 7 5700G (8 cores / 16 threads) ทดสอบโดยใช้ 1 thread |
+| การ์ดจอ | NVIDIA GeForce RTX 3080 12 GB |
+| RAM | 16 GB |
+| ระบบ | Windows 11, Python 3.11.9 |
+| โปรแกรม | iapp-ai 2.0.0, ONNX Runtime 1.32.0 |</textarea></section><section><h2>ตัดคำ 3 ระดับ ต่างกันอย่างไร</h2><table><thead><tr><th>ระดับ</th><th>ตัดออกมาเป็น</th><th>เหมาะกับงาน</th></tr></thead><tbody><tr><td>long</td><td>คำประสม เก็บคำที่รวมเป็นความหมายเดียวไว้ทั้งก้อน</td><td>ดึง keyword, ชื่อเฉพาะ, ศัพท์เทคนิค</td></tr><tr><td>short (ค่าเริ่มต้น)</td><td>คำ แยกคำประสมออกเป็นคำ</td><td>งานประมวลผลภาษาทั่วไป</td></tr><tr><td>minimal</td><td>หน่วยคำ แยกจนเหลือชิ้นเล็กสุดที่ยังมีความหมาย</td><td>ระบบค้นหาที่อยากให้เจอครอบคลุม</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ระดับ | ตัดออกมาเป็น | เหมาะกับงาน |
+|---|---|---|
+| long | คำประสม เก็บคำที่รวมเป็นความหมายเดียวไว้ทั้งก้อน | ดึง keyword, ชื่อเฉพาะ, ศัพท์เทคนิค |
+| short (ค่าเริ่มต้น) | คำ แยกคำประสมออกเป็นคำ | งานประมวลผลภาษาทั่วไป |
+| minimal | หน่วยคำ แยกจนเหลือชิ้นเล็กสุดที่ยังมีความหมาย | ระบบค้นหาที่อยากให้เจอครอบคลุม |</textarea></section><section><h2>ตัวอย่าง: ร้านอาหารตามสั่งหน้าปากซอยอร่อยมาก</h2><table><thead><tr><th>ระดับ</th><th>ผลตัดคำ</th><th style="text-align:right">จำนวนชิ้น</th></tr></thead><tbody><tr><td>long</td><td>ร้านอาหาร | ตามสั่ง | หน้า | ปากซอย | อร่อย | มาก</td><td style="text-align:right">6</td></tr><tr><td>short</td><td>ร้าน | อาหาร | ตามสั่ง | หน้า | ปาก | ซอย | อร่อย | มาก</td><td style="text-align:right">8</td></tr><tr><td>minimal</td><td>ร้าน | อาหาร | ตาม | สั่ง | หน้า | ปาก | ซอย | อร่อย | มาก</td><td style="text-align:right">9</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ระดับ | ผลตัดคำ | จำนวนชิ้น |
+|---|---|---:|
+| long | ร้านอาหาร \| ตามสั่ง \| หน้า \| ปากซอย \| อร่อย \| มาก | 6 |
+| short | ร้าน \| อาหาร \| ตามสั่ง \| หน้า \| ปาก \| ซอย \| อร่อย \| มาก | 8 |
+| minimal | ร้าน \| อาหาร \| ตาม \| สั่ง \| หน้า \| ปาก \| ซอย \| อร่อย \| มาก | 9 |</textarea></section><section><h2>ตัวอย่าง: เจ้าหน้าที่การศึกษาเปิดเผยว่า</h2><table><thead><tr><th>ระดับ</th><th>ผลตัดคำ</th><th style="text-align:right">จำนวนชิ้น</th></tr></thead><tbody><tr><td>long</td><td>เจ้าหน้าที่ | การศึกษา | เปิดเผย | ว่า</td><td style="text-align:right">4</td></tr><tr><td>short</td><td>เจ้า | หน้าที่ | การ | ศึกษา | เปิด | เผย | ว่า</td><td style="text-align:right">7</td></tr><tr><td>minimal</td><td>เจ้า | หน้า | ที่ | การ | ศึกษา | เปิด | เผย | ว่า</td><td style="text-align:right">8</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ระดับ | ผลตัดคำ | จำนวนชิ้น |
+|---|---|---:|
+| long | เจ้าหน้าที่ \| การศึกษา \| เปิดเผย \| ว่า | 4 |
+| short | เจ้า \| หน้าที่ \| การ \| ศึกษา \| เปิด \| เผย \| ว่า | 7 |
+| minimal | เจ้า \| หน้า \| ที่ \| การ \| ศึกษา \| เปิด \| เผย \| ว่า | 8 |</textarea></section><section><h2>n-best: ขอดูได้หลายคำตอบ เรียงตามความน่าจะเป็น</h2><table><thead><tr><th>ข้อความ</th><th>อันดับ 1</th><th>อันดับ 2</th><th>อันดับ 3</th></tr></thead><tbody><tr><td>ตากลม</td><td>ตา | กลม (41.8%)</td><td>ตากลม (41.4%)</td><td>ตาก | ลม (8.3%)</td></tr><tr><td>ไปหามเหสี</td><td>ไป | หา | มเหสี (83.0%)</td><td>ไป | หาม | เหสี (0.5%)</td><td>ไปหา | มเหสี (0.2%)</td></tr><tr><td>แปลกว่า</td><td>แปล | ก | ว่า (53.0%)</td><td>แปลก | ว่า (23.3%)</td><td>แปล | กว่า (16.4%)</td></tr><tr><td>รอบอก</td><td>รอ | บ | อก (35.1%)</td><td>รอ | บอก (25.8%)</td><td>รอบ | อก (22.4%)</td></tr></tbody></table><p class="note">สองแถวล่าง คำตอบอันดับ 1 ไม่ใช่คำตอบที่ถูก ต้องดูอันดับถัดไป</p><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ข้อความ | อันดับ 1 | อันดับ 2 | อันดับ 3 |
+|---|---|---|---|
+| ตากลม | ตา \| กลม (41.8%) | ตากลม (41.4%) | ตาก \| ลม (8.3%) |
+| ไปหามเหสี | ไป \| หา \| มเหสี (83.0%) | ไป \| หาม \| เหสี (0.5%) | ไปหา \| มเหสี (0.2%) |
+| แปลกว่า | แปล \| ก \| ว่า (53.0%) | แปลก \| ว่า (23.3%) | แปล \| กว่า (16.4%) |
+| รอบอก | รอ \| บ \| อก (35.1%) | รอ \| บอก (25.8%) | รอบ \| อก (22.4%) |</textarea></section><section><h2>ความแม่น (word F1 เต็ม 100) แยกตามชุดทดสอบ</h2><table><thead><tr><th>ชุดทดสอบ</th><th style="text-align:right">long</th><th style="text-align:right">short</th><th style="text-align:right">minimal</th><th style="text-align:right">short ที่ผู้พัฒนาเผยแพร่</th></tr></thead><tbody><tr><td>TUD</td><td style="text-align:right">83.69</td><td style="text-align:right">90.23</td><td style="text-align:right">85.36</td><td style="text-align:right">90.27</td></tr><tr><td>PUD</td><td style="text-align:right">86.20</td><td style="text-align:right">84.64</td><td style="text-align:right">80.35</td><td style="text-align:right">84.66</td></tr><tr><td>Wisesight-160</td><td style="text-align:right">85.69</td><td style="text-align:right">88.53</td><td style="text-align:right">84.04</td><td style="text-align:right">88.32</td></tr><tr><td>VISTEC</td><td style="text-align:right">92.73</td><td style="text-align:right">87.90</td><td style="text-align:right">76.47</td><td style="text-align:right">87.94</td></tr><tr><td><strong>เฉลี่ย 4 ชุด</strong></td><td style="text-align:right"><strong>87.08</strong></td><td style="text-align:right"><strong>87.82</strong></td><td style="text-align:right"><strong>81.56</strong></td><td style="text-align:right"><strong>87.80</strong></td></tr><tr><td>TALPCo (ชุดที่เราหามาเพิ่ม)</td><td style="text-align:right">88.69</td><td style="text-align:right">92.96</td><td style="text-align:right">92.15</td><td style="text-align:right">ไม่มี</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ชุดทดสอบ | long | short | minimal | short ที่ผู้พัฒนาเผยแพร่ |
+|---|---:|---:|---:|---:|
+| TUD | 83.69 | 90.23 | 85.36 | 90.27 |
+| PUD | 86.20 | 84.64 | 80.35 | 84.66 |
+| Wisesight-160 | 85.69 | 88.53 | 84.04 | 88.32 |
+| VISTEC | 92.73 | 87.90 | 76.47 | 87.94 |
+| **เฉลี่ย 4 ชุด** | **87.08** | **87.82** | **81.56** | **87.80** |
+| TALPCo (ชุดที่เราหามาเพิ่ม) | 88.69 | 92.96 | 92.15 | ไม่มี |</textarea></section><section><h2>เทียบกับตัวตัดคำอื่น: word F1 เฉลี่ย 4 ชุดเดียวกัน</h2><table><thead><tr><th>ระบบ</th><th style="text-align:right">word F1</th><th>ที่มาของตัวเลข</th></tr></thead><tbody><tr><td><strong>LATTE WordSeg Lite (short)</strong></td><td style="text-align:right"><strong>87.82</strong></td><td><strong>เราวัดเองบนเครื่องเรา</strong></td></tr><tr><td>SEFR CUT (ws1000)</td><td style="text-align:right">83.78</td><td>ผู้พัฒนา benchmark เผยแพร่</td></tr><tr><td>SEFR CUT (best)</td><td style="text-align:right">83.62</td><td>ผู้พัฒนา benchmark เผยแพร่</td></tr><tr><td>DeepCut</td><td style="text-align:right">83.59</td><td>ผู้พัฒนา benchmark เผยแพร่</td></tr><tr><td>OSKut (scads)</td><td style="text-align:right">83.50</td><td>ผู้พัฒนา benchmark เผยแพร่</td></tr><tr><td>AttaCut-SC</td><td style="text-align:right">83.12</td><td>ผู้พัฒนา benchmark เผยแพร่</td></tr><tr><td>PyThaiNLP newmm</td><td style="text-align:right">71.96</td><td>ผู้พัฒนา benchmark เผยแพร่</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ระบบ | word F1 | ที่มาของตัวเลข |
+|---|---:|---|
+| **LATTE WordSeg Lite (short)** | **87.82** | **เราวัดเองบนเครื่องเรา** |
+| SEFR CUT (ws1000) | 83.78 | ผู้พัฒนา benchmark เผยแพร่ |
+| SEFR CUT (best) | 83.62 | ผู้พัฒนา benchmark เผยแพร่ |
+| DeepCut | 83.59 | ผู้พัฒนา benchmark เผยแพร่ |
+| OSKut (scads) | 83.50 | ผู้พัฒนา benchmark เผยแพร่ |
+| AttaCut-SC | 83.12 | ผู้พัฒนา benchmark เผยแพร่ |
+| PyThaiNLP newmm | 71.96 | ผู้พัฒนา benchmark เผยแพร่ |</textarea></section><section><h2>ชุด TALPCo: LATTE เทียบกับ DeepCut</h2><table><thead><tr><th>ระบบ</th><th style="text-align:right">word F1</th><th style="text-align:right">boundary F1</th></tr></thead><tbody><tr><td><strong>LATTE ระดับ short</strong></td><td style="text-align:right"><strong>92.96</strong></td><td style="text-align:right"><strong>96.99</strong></td></tr><tr><td>LATTE ระดับ minimal</td><td style="text-align:right">92.15</td><td style="text-align:right">96.66</td></tr><tr><td>DeepCut</td><td style="text-align:right">91.80</td><td style="text-align:right">95.97</td></tr><tr><td>LATTE ระดับ long</td><td style="text-align:right">88.69</td><td style="text-align:right">95.09</td></tr></tbody></table><p class="note">เฉลยของ TALPCo เริ่มจากผลของ DeepCut แล้วมีคนตรวจแก้ DeepCut จึงได้เปรียบบนชุดนี้</p><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ระบบ | word F1 | boundary F1 |
+|---|---:|---:|
+| **LATTE ระดับ short** | **92.96** | **96.99** |
+| LATTE ระดับ minimal | 92.15 | 96.66 |
+| DeepCut | 91.80 | 95.97 |
+| LATTE ระดับ long | 88.69 | 95.09 |</textarea></section><section><h2>DeepCut ที่เราติดตั้ง ได้คะแนนตรงกับที่ผู้พัฒนาเผยแพร่ (word F1)</h2><table><thead><tr><th>ชุดทดสอบ</th><th style="text-align:right">เราวัดได้</th><th style="text-align:right">ผู้พัฒนาเผยแพร่</th></tr></thead><tbody><tr><td>TUD</td><td style="text-align:right">85.50</td><td style="text-align:right">85.50</td></tr><tr><td>PUD</td><td style="text-align:right">85.62</td><td style="text-align:right">85.62</td></tr><tr><td>Wisesight-160</td><td style="text-align:right">83.13</td><td style="text-align:right">83.13</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ชุดทดสอบ | เราวัดได้ | ผู้พัฒนาเผยแพร่ |
+|---|---:|---:|
+| TUD | 85.50 | 85.50 |
+| PUD | 85.62 | 85.62 |
+| Wisesight-160 | 83.13 | 83.13 |</textarea></section><section><h2>ความเร็ว: ตัดข้อความ 1 ล้านตัวอักษร บน CPU 1 thread</h2><table><thead><tr><th>ระบบ</th><th style="text-align:right">เวลาที่ใช้</th><th style="text-align:right">ตัวอักษรต่อวินาที</th><th style="text-align:right">เทียบกับ DeepCut</th></tr></thead><tbody><tr><td>DeepCut (ทีละบรรทัด)</td><td style="text-align:right">379 วินาที</td><td style="text-align:right">2,636</td><td style="text-align:right">1 เท่า</td></tr><tr><td><strong>LATTE (ทีละบรรทัด)</strong></td><td style="text-align:right"><strong>19.5 วินาที</strong></td><td style="text-align:right"><strong>51,213</strong></td><td style="text-align:right"><strong>เร็วกว่า 19.4 เท่า</strong></td></tr><tr><td>LATTE (ส่งเป็น batch)</td><td style="text-align:right">16.9 วินาที</td><td style="text-align:right">59,029</td><td style="text-align:right">เร็วกว่า 22.4 เท่า</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ระบบ | เวลาที่ใช้ | ตัวอักษรต่อวินาที | เทียบกับ DeepCut |
+|---|---:|---:|---:|
+| DeepCut (ทีละบรรทัด) | 379 วินาที | 2,636 | 1 เท่า |
+| **LATTE (ทีละบรรทัด)** | **19.5 วินาที** | **51,213** | **เร็วกว่า 19.4 เท่า** |
+| LATTE (ส่งเป็น batch) | 16.9 วินาที | 59,029 | เร็วกว่า 22.4 เท่า |</textarea></section><section><h2>ลองรันบนการ์ดจอ RTX 3080 เทียบกับ CPU (เวลาต่อ 1 ล้านตัวอักษร)</h2><table><thead><tr><th>วิธีเรียก</th><th style="text-align:right">CPU 1 thread</th><th style="text-align:right">การ์ดจอ (CUDA)</th><th style="text-align:right">การ์ดจอ (DirectML)</th></tr></thead><tbody><tr><td>ทีละบรรทัด</td><td style="text-align:right">19.9 วินาที</td><td style="text-align:right">34.9 วินาที (ช้ากว่า 1.75 เท่า)</td><td style="text-align:right">41.3 วินาที (ช้ากว่า 2.07 เท่า)</td></tr><tr><td>batch 4,096 ตัวอักษร</td><td style="text-align:right">17.3 วินาที</td><td style="text-align:right">16.4 วินาที (เร็วกว่า 1.05 เท่า)</td><td style="text-align:right">18.8 วินาที (ช้ากว่า 1.09 เท่า)</td></tr><tr><td>batch 32,768 ตัวอักษร</td><td style="text-align:right">17.9 วินาที</td><td style="text-align:right">14.7 วินาที (เร็วกว่า 1.22 เท่า)</td><td style="text-align:right">18.1 วินาที (ช้ากว่า 1.01 เท่า)</td></tr><tr><td>batch 131,072 ตัวอักษร</td><td style="text-align:right">18.5 วินาที</td><td style="text-align:right">15.0 วินาที (เร็วกว่า 1.23 เท่า)</td><td style="text-align:right">17.1 วินาที (เร็วกว่า 1.08 เท่า)</td></tr></tbody></table><p class="note">วัดตอนเครื่องว่าง ในวงเล็บคือเทียบกับ CPU ผลฝั่งการ์ดจอแกว่งระหว่างรอบได้ราว 15%</p><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| วิธีเรียก | CPU 1 thread | การ์ดจอ (CUDA) | การ์ดจอ (DirectML) |
+|---|---:|---:|---:|
+| ทีละบรรทัด | 19.9 วินาที | 34.9 วินาที (ช้ากว่า 1.75 เท่า) | 41.3 วินาที (ช้ากว่า 2.07 เท่า) |
+| batch 4,096 ตัวอักษร | 17.3 วินาที | 16.4 วินาที (เร็วกว่า 1.05 เท่า) | 18.8 วินาที (ช้ากว่า 1.09 เท่า) |
+| batch 32,768 ตัวอักษร | 17.9 วินาที | 14.7 วินาที (เร็วกว่า 1.22 เท่า) | 18.1 วินาที (ช้ากว่า 1.01 เท่า) |
+| batch 131,072 ตัวอักษร | 18.5 วินาที | 15.0 วินาที (เร็วกว่า 1.23 เท่า) | 17.1 วินาที (เร็วกว่า 1.08 เท่า) |</textarea></section><section><h2>เมื่อใช้การ์ดจอ งานของ model ไปรันที่ไหน (เวลาคำนวณของตัวอย่าง 200 บรรทัด)</h2><table><thead><tr><th>ทางที่ใช้</th><th style="text-align:right">รันบนการ์ดจอ</th><th style="text-align:right">ค้างบน CPU</th><th style="text-align:right">คัดลอกข้อมูลข้ามฝั่งต่อรอบ</th></tr></thead><tbody><tr><td>CUDA</td><td style="text-align:right">97 ms (13%)</td><td style="text-align:right">657 ms (87%)</td><td style="text-align:right">8 ครั้ง</td></tr><tr><td>DirectML</td><td style="text-align:right">228 ms (24%)</td><td style="text-align:right">728 ms (76%)</td><td style="text-align:right">5 ครั้ง</td></tr></tbody></table><p class="note">ส่วนที่ค้างบน CPU คือชั้น LSTM แบบ INT8 ซึ่งไม่มีตัวรันบนการ์ดจอทั้งสองทาง (ทาง CUDA มีส่วน INT8 อื่นค้างด้วย)</p><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ทางที่ใช้ | รันบนการ์ดจอ | ค้างบน CPU | คัดลอกข้อมูลข้ามฝั่งต่อรอบ |
+|---|---:|---:|---:|
+| CUDA | 97 ms (13%) | 657 ms (87%) | 8 ครั้ง |
+| DirectML | 228 ms (24%) | 728 ms (76%) | 5 ครั้ง |</textarea></section><section><h2>ต้นทุนของการเรียกทีละบรรทัด (3,591 ครั้ง)</h2><table><thead><tr><th>รันบน</th><th style="text-align:right">เวลารวม</th><th style="text-align:right">เฉลี่ยต่อครั้ง</th><th style="text-align:right">เพิ่มจาก CPU ต่อครั้ง</th></tr></thead><tbody><tr><td>CPU 1 thread</td><td style="text-align:right">19.9 วินาที</td><td style="text-align:right">5.6 ms</td><td style="text-align:right">ไม่มี</td></tr><tr><td>การ์ดจอ (CUDA)</td><td style="text-align:right">34.9 วินาที</td><td style="text-align:right">9.7 ms</td><td style="text-align:right">4.2 ms</td></tr><tr><td>การ์ดจอ (DirectML)</td><td style="text-align:right">41.3 วินาที</td><td style="text-align:right">11.5 ms</td><td style="text-align:right">6.0 ms</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| รันบน | เวลารวม | เฉลี่ยต่อครั้ง | เพิ่มจาก CPU ต่อครั้ง |
+|---|---:|---:|---:|
+| CPU 1 thread | 19.9 วินาที | 5.6 ms | ไม่มี |
+| การ์ดจอ (CUDA) | 34.9 วินาที | 9.7 ms | 4.2 ms |
+| การ์ดจอ (DirectML) | 41.3 วินาที | 11.5 ms | 6.0 ms |</textarea></section><section><h2>ผลจับเวลาทุกรอบ (วินาทีต่อ 1 ล้านตัวอักษร แต่ละค่าคือค่าดีสุดจาก 3 ครั้ง)</h2><table><thead><tr><th>รอบ</th><th style="text-align:right">ทีละบรรทัด</th><th style="text-align:right">batch 4,096</th><th style="text-align:right">batch 32,768</th><th style="text-align:right">batch 131,072</th><th>สภาพเครื่องตอนวัด</th></tr></thead><tbody><tr><td>CPU รอบ 1</td><td style="text-align:right">20.8</td><td style="text-align:right">17.0</td><td style="text-align:right">17.7</td><td style="text-align:right">18.1</td><td>มีการติดตั้งโปรแกรมเดินอยู่</td></tr><tr><td>CPU รอบ 2</td><td style="text-align:right">19.5</td><td style="text-align:right">16.9</td><td style="text-align:right">17.5</td><td style="text-align:right">17.9</td><td>มีการดาวน์โหลดเดินอยู่</td></tr><tr><td>CPU รอบ 3</td><td style="text-align:right">19.9</td><td style="text-align:right">17.3</td><td style="text-align:right">17.9</td><td style="text-align:right">18.5</td><td>เครื่องว่าง</td></tr><tr><td>CPU รอบ 4 (ONNX Runtime 1.24.4)</td><td style="text-align:right">20.2</td><td style="text-align:right">17.4</td><td style="text-align:right">17.6</td><td style="text-align:right">17.9</td><td>เครื่องว่าง</td></tr><tr><td>CUDA รอบ 1</td><td style="text-align:right">40.0</td><td style="text-align:right">16.0</td><td style="text-align:right">16.5</td><td style="text-align:right">15.5</td><td>เครื่องว่าง</td></tr><tr><td>CUDA รอบ 2</td><td style="text-align:right">34.9</td><td style="text-align:right">16.4</td><td style="text-align:right">14.7</td><td style="text-align:right">15.0</td><td>เครื่องว่าง</td></tr><tr><td>DirectML รอบ 1</td><td style="text-align:right">46.3</td><td style="text-align:right">19.5</td><td style="text-align:right">18.6</td><td style="text-align:right">17.8</td><td>มีการดาวน์โหลดเดินอยู่</td></tr><tr><td>DirectML รอบ 2</td><td style="text-align:right">41.3</td><td style="text-align:right">18.8</td><td style="text-align:right">18.1</td><td style="text-align:right">17.1</td><td>เครื่องว่าง</td></tr></tbody></table><p class="note">CPU รอบ 1 ถึง 3 ใช้ ONNX Runtime 1.32 ส่วนการ์ดจอทุกรอบใช้ 1.24.4 ตารางเทียบกับ DeepCut ใช้ CPU รอบ 2 ซึ่งวัดต่อจาก DeepCut ทันที ตารางการ์ดจอใช้ CPU รอบ 3, CUDA รอบ 2 และ DirectML รอบ 2</p><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| รอบ | ทีละบรรทัด | batch 4,096 | batch 32,768 | batch 131,072 | สภาพเครื่องตอนวัด |
+|---|---:|---:|---:|---:|---|
+| CPU รอบ 1 | 20.8 | 17.0 | 17.7 | 18.1 | มีการติดตั้งโปรแกรมเดินอยู่ |
+| CPU รอบ 2 | 19.5 | 16.9 | 17.5 | 17.9 | มีการดาวน์โหลดเดินอยู่ |
+| CPU รอบ 3 | 19.9 | 17.3 | 17.9 | 18.5 | เครื่องว่าง |
+| CPU รอบ 4 (ONNX Runtime 1.24.4) | 20.2 | 17.4 | 17.6 | 17.9 | เครื่องว่าง |
+| CUDA รอบ 1 | 40.0 | 16.0 | 16.5 | 15.5 | เครื่องว่าง |
+| CUDA รอบ 2 | 34.9 | 16.4 | 14.7 | 15.0 | เครื่องว่าง |
+| DirectML รอบ 1 | 46.3 | 19.5 | 18.6 | 17.8 | มีการดาวน์โหลดเดินอยู่ |
+| DirectML รอบ 2 | 41.3 | 18.8 | 18.1 | 17.1 | เครื่องว่าง |</textarea></section><section><h2>ผลตัดคำเหมือนกันแค่ไหน (จาก 3,591 บรรทัด ระดับ short)</h2><table><thead><tr><th>เทียบอะไรกับอะไร</th><th style="text-align:right">บรรทัดที่เหมือนกัน</th><th style="text-align:right">สัดส่วน</th></tr></thead><tbody><tr><td>CPU บน ONNX Runtime 1.32 กับ 1.24.4</td><td style="text-align:right">3,591</td><td style="text-align:right">100%</td></tr><tr><td>CPU กับการ์ดจอ (DirectML)</td><td style="text-align:right">3,572</td><td style="text-align:right">99.5%</td></tr><tr><td>CPU กับการ์ดจอ (CUDA)</td><td style="text-align:right">3,535</td><td style="text-align:right">98.4%</td></tr><tr><td>CPU เรียกทีละบรรทัด กับ CPU ส่งเป็น batch</td><td style="text-align:right">3,486</td><td style="text-align:right">97.1%</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| เทียบอะไรกับอะไร | บรรทัดที่เหมือนกัน | สัดส่วน |
+|---|---:|---:|
+| CPU บน ONNX Runtime 1.32 กับ 1.24.4 | 3,591 | 100% |
+| CPU กับการ์ดจอ (DirectML) | 3,572 | 99.5% |
+| CPU กับการ์ดจอ (CUDA) | 3,535 | 98.4% |
+| CPU เรียกทีละบรรทัด กับ CPU ส่งเป็น batch | 3,486 | 97.1% |</textarea></section><section><h2>หน่วยความจำและขนาดไฟล์</h2><table><thead><tr><th>รายการ</th><th style="text-align:right">ที่วัดได้</th></tr></thead><tbody><tr><td>RAM หลังโหลด model</td><td style="text-align:right">79 MB</td></tr><tr><td>RAM สูงสุดเมื่อเรียกทีละบรรทัด</td><td style="text-align:right">97 MB</td></tr><tr><td>RAM สูงสุดเมื่อส่ง 1 ล้านตัวอักษรใน batch เดียว</td><td style="text-align:right">216 MB</td></tr><tr><td>ขนาด model กับ dictionary บนดิสก์</td><td style="text-align:right">3.82 MB</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| รายการ | ที่วัดได้ |
+|---|---:|
+| RAM หลังโหลด model | 79 MB |
+| RAM สูงสุดเมื่อเรียกทีละบรรทัด | 97 MB |
+| RAM สูงสุดเมื่อส่ง 1 ล้านตัวอักษรใน batch เดียว | 216 MB |
+| ขนาด model กับ dictionary บนดิสก์ | 3.82 MB |</textarea></section><section><h2>สิ่งที่ผู้พัฒนาบอก กับสิ่งที่เราวัดได้</h2><table><thead><tr><th>สิ่งที่ผู้พัฒนาบอก</th><th>ผลบนเครื่องเรา</th><th>สรุป</th></tr></thead><tbody><tr><td>ตัดได้ 3 ระดับ และขอดูหลายคำตอบได้</td><td>ใช้ได้จริง ผลตรงกับตัวอย่างในประกาศ</td><td>ตรง</td></tr><tr><td>แม่นที่สุดโดยรวม (85.6 จาก 7 ชุด)</td><td>ตรวจได้ 4 จาก 7 ชุด ได้ 87.82 สูงสุดในกลุ่ม</td><td>ตรง (ตรวจได้ 4 ชุด)</td></tr><tr><td>เร็วกว่า DeepCut 23 เท่า</td><td>เร็วกว่า 19.4 เท่า</td><td>ใกล้เคียง</td></tr><tr><td>1 ล้านตัวอักษรราว 17 วินาที</td><td>19.5 วินาที</td><td>ใกล้เคียง</td></tr><tr><td>ส่งเป็น batch ราว 10 วินาที</td><td>16.9 วินาที</td><td>ช้ากว่าที่บอก</td></tr><tr><td>model กับ dictionary 3.8 MB</td><td>3.82 MB</td><td>ตรง</td></tr><tr><td>ใช้ RAM 136 MB</td><td>97 MB เมื่อเรียกทีละบรรทัด และ 216 MB เมื่อส่ง 1 ล้านตัวอักษรรวดเดียว</td><td>วัดคนละเงื่อนไข</td></tr><tr><td>รัน offline ได้ ติดตั้งคำสั่งเดียว</td><td>ตัดคำได้ปกติเมื่อปิดเน็ต</td><td>ตรง</td></tr><tr><td>ใช้เชิงพาณิชย์ได้ (CC BY-SA 4.0)</td><td>ตรงกับเอกสาร licence ที่มากับโปรแกรม</td><td>ตรง</td></tr></tbody></table><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| สิ่งที่ผู้พัฒนาบอก | ผลบนเครื่องเรา | สรุป |
+|---|---|---|
+| ตัดได้ 3 ระดับ และขอดูหลายคำตอบได้ | ใช้ได้จริง ผลตรงกับตัวอย่างในประกาศ | ตรง |
+| แม่นที่สุดโดยรวม (85.6 จาก 7 ชุด) | ตรวจได้ 4 จาก 7 ชุด ได้ 87.82 สูงสุดในกลุ่ม | ตรง (ตรวจได้ 4 ชุด) |
+| เร็วกว่า DeepCut 23 เท่า | เร็วกว่า 19.4 เท่า | ใกล้เคียง |
+| 1 ล้านตัวอักษรราว 17 วินาที | 19.5 วินาที | ใกล้เคียง |
+| ส่งเป็น batch ราว 10 วินาที | 16.9 วินาที | ช้ากว่าที่บอก |
+| model กับ dictionary 3.8 MB | 3.82 MB | ตรง |
+| ใช้ RAM 136 MB | 97 MB เมื่อเรียกทีละบรรทัด และ 216 MB เมื่อส่ง 1 ล้านตัวอักษรรวดเดียว | วัดคนละเงื่อนไข |
+| รัน offline ได้ ติดตั้งคำสั่งเดียว | ตัดคำได้ปกติเมื่อปิดเน็ต | ตรง |
+| ใช้เชิงพาณิชย์ได้ (CC BY-SA 4.0) | ตรงกับเอกสาร licence ที่มากับโปรแกรม | ตรง |</textarea></section><section><h2>ข้อมูลที่ใช้ทดสอบ (ทุกชุดมีคนตัดคำเป็นเฉลย และแจกต่อได้)</h2><table><thead><tr><th>ชุด</th><th>เนื้อหา</th><th>Licence</th><th style="text-align:right">บรรทัด</th><th style="text-align:right">คำในเฉลย</th></tr></thead><tbody><tr><td>TUD</td><td>UD Thai-TUD ส่วนทดสอบ</td><td>CC BY-SA 4.0</td><td style="text-align:right">363</td><td style="text-align:right">7,683</td></tr><tr><td>PUD</td><td>UD Thai-PUD</td><td>CC BY-SA 3.0</td><td style="text-align:right">1,000</td><td style="text-align:right">22,330</td></tr><tr><td>Wisesight-160</td><td>ข้อความโซเชียล</td><td>CC0</td><td style="text-align:right">160</td><td style="text-align:right">3,374</td></tr><tr><td>VISTEC</td><td>ข้อความโซเชียล</td><td>CC BY-SA 3.0</td><td style="text-align:right">10,000</td><td style="text-align:right">677,448</td></tr><tr><td>TALPCo</td><td>ประโยคสั้นแปลจากภาษาญี่ปุ่น</td><td>CC BY 4.0</td><td style="text-align:right">1,368</td><td style="text-align:right">10,923</td></tr></tbody></table><p class="note">4 ชุดแรกมาจาก benchmark ของผู้พัฒนา ชุดสุดท้ายเราหามาเพิ่มเอง</p><div class="bar"><button type="button" data-copy="table">คัดลอกตาราง</button><button type="button" data-copy="md">คัดลอกเป็น Markdown</button><span class="done"></span></div><textarea hidden>| ชุด | เนื้อหา | Licence | บรรทัด | คำในเฉลย |
+|---|---|---|---:|---:|
+| TUD | UD Thai-TUD ส่วนทดสอบ | CC BY-SA 4.0 | 363 | 7,683 |
+| PUD | UD Thai-PUD | CC BY-SA 3.0 | 1,000 | 22,330 |
+| Wisesight-160 | ข้อความโซเชียล | CC0 | 160 | 3,374 |
+| VISTEC | ข้อความโซเชียล | CC BY-SA 3.0 | 10,000 | 677,448 |
+| TALPCo | ประโยคสั้นแปลจากภาษาญี่ปุ่น | CC BY 4.0 | 1,368 | 10,923 |</textarea></section><script>
+function copyNode(node) {
+  var selection = window.getSelection(), range = document.createRange(), ok = false;
+  range.selectNode(node);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  try { ok = document.execCommand('copy'); } catch (error) { ok = false; }
+  selection.removeAllRanges();
+  return ok;
+}
+function copyText(text) {
+  var area = document.createElement('textarea'), ok = false;
+  area.value = text;
+  area.style.position = 'fixed';
+  area.style.opacity = '0';
+  document.body.appendChild(area);
+  area.select();
+  try { ok = document.execCommand('copy'); } catch (error) { ok = false; }
+  document.body.removeChild(area);
+  return ok;
+}
+document.querySelectorAll('button[data-copy]').forEach(function (button) {
+  button.addEventListener('click', function () {
+    var section = button.closest('section'), done = section.querySelector('.done');
+    var ok = button.dataset.copy === 'table'
+      ? copyNode(section.querySelector('table'))
+      : copyText(section.querySelector('textarea').value);
+    done.textContent = ok ? 'คัดลอกแล้ว' : 'คัดลอกไม่สำเร็จ ให้ลากคลุมตารางแล้วกด Ctrl+C';
+    setTimeout(function () { done.textContent = ''; }, 3000);
+  });
+});
+document.documentElement.setAttribute('data-ready', document.querySelectorAll('button[data-copy]').length);
+</script></body></html>

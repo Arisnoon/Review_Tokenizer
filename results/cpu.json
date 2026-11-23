@@ -1,0 +1,45 @@
+{
+ "device": "cpu",
+ "hardware": {
+  "cpu": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "cpu_logical_cores": 16,
+  "gpu": "NVIDIA GeForce RTX 3080, 12288 MiB, 560.94",
+  "os": "Windows 10",
+  "python": "3.11.9"
+ },
+ "onnxruntime": "1.32.0",
+ "providers": [
+  "CPUExecutionProvider"
+ ],
+ "threads": 1,
+ "lines": 3591,
+ "chars": 1000019,
+ "load_seconds": 0.2796349000018381,
+ "repeats": 3,
+ "runs": [
+  {
+   "mode": "one line per call",
+   "seconds": 19.934301299999788,
+   "chars_per_second": 50165.74119906629,
+   "seconds_per_million_chars": 19.933922555471234
+  },
+  {
+   "mode": "batch (4,096 chars)",
+   "seconds": 17.269464099998004,
+   "chars_per_second": 57906.776620828416,
+   "seconds_per_million_chars": 17.269135986414263
+  },
+  {
+   "mode": "batch (32,768 chars)",
+   "seconds": 17.86030319999918,
+   "chars_per_second": 55991.15473023134,
+   "seconds_per_million_chars": 17.859963860685827
+  },
+  {
+   "mode": "batch (131,072 chars)",
+   "seconds": 18.483712100001867,
+   "chars_per_second": 54102.71457322141,
+   "seconds_per_million_chars": 18.483360916144463
+  }
+ ]
+}

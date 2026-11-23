@@ -1,0 +1,23 @@
+[
+ {
+  "mode": "load",
+  "python_baseline_mb": 19.3,
+  "after_load_mb": 78.6,
+  "end_rss_mb": 78.6,
+  "peak_mb": 97.0
+ },
+ {
+  "mode": "per_line",
+  "python_baseline_mb": 17.8,
+  "after_load_mb": 78.7,
+  "end_rss_mb": 84.1,
+  "peak_mb": 97.1
+ },
+ {
+  "mode": "batch",
+  "python_baseline_mb": 17.8,
+  "after_load_mb": 78.5,
+  "end_rss_mb": 180.6,
+  "peak_mb": 216.0
+ }
+]

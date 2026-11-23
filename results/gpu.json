@@ -1,0 +1,79 @@
+{
+ "device": "gpu",
+ "hardware": {
+  "cpu": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "cpu_logical_cores": 16,
+  "gpu": "NVIDIA GeForce RTX 3080, 12288 MiB, 560.94",
+  "os": "Windows 10",
+  "python": "3.11.9"
+ },
+ "onnxruntime": "1.24.4",
+ "providers": [
+  "CUDAExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "threads": 1,
+ "lines": 3591,
+ "chars": 1000019,
+ "load_seconds": 0.3672031000023708,
+ "repeats": 3,
+ "runs": [
+  {
+   "mode": "one line per call",
+   "seconds": 34.91773970000213,
+   "chars_per_second": 28639.282169800328,
+   "seconds_per_million_chars": 34.9170762755529
+  },
+  {
+   "mode": "batch (4,096 chars)",
+   "seconds": 16.40415740000026,
+   "chars_per_second": 60961.31459943101,
+   "seconds_per_million_chars": 16.403845726931447
+  },
+  {
+   "mode": "batch (32,768 chars)",
+   "seconds": 14.650917000002664,
+   "chars_per_second": 68256.41016189076,
+   "seconds_per_million_chars": 14.650638637868544
+  },
+  {
+   "mode": "batch (131,072 chars)",
+   "seconds": 14.967676200001733,
+   "chars_per_second": 66811.90764935737,
+   "seconds_per_million_chars": 14.967391819557161
+  }
+ ],
+ "node_placement": {
+  "CUDAExecutionProvider": {
+   "nodes": 38,
+   "ms": 96.9,
+   "ops": {
+    "MemcpyFromHost": 70,
+    "Transpose": 70,
+    "Unsqueeze": 42,
+    "Cast": 42,
+    "Mul": 42,
+    "Conv": 42,
+    "Relu": 42,
+    "MemcpyToHost": 42,
+    "Gather": 28,
+    "Concat": 28,
+    "Reshape": 28,
+    "Shape": 14,
+    "Range": 14,
+    "Less": 14,
+    "Add": 14
+   }
+  },
+  "CPUExecutionProvider": {
+   "nodes": 5,
+   "ms": 657.3,
+   "ops": {
+    "DynamicQuantizeLSTM": 28,
+    "Gather": 14,
+    "DynamicQuantizeLinear": 14,
+    "MatMulInteger": 14
+   }
+  }
+ }
+}

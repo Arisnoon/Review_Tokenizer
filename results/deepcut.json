@@ -1,0 +1,12 @@
+{
+ "system": "deepcut 0.7.0.0",
+ "tensorflow": "2.15.1",
+ "threads": 1,
+ "mode": "one line per call",
+ "lines": 3591,
+ "chars": 1000019,
+ "seconds": 379.3960189999998,
+ "chars_per_second": 2635.818379528122,
+ "seconds_per_million_chars": 379.3888106125982,
+ "load_seconds": 1.1262964999987162
+}

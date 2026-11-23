@@ -1,0 +1,10 @@
+# Python environment ของแต่ละการทดลอง สร้างตามหัวข้อ "การติดตั้ง" ใน README
+.venv*/
+__pycache__/
+
+# ข้อมูลของผู้อื่นที่ prepare_data.py โหลดและสร้างให้ (โหลดใหม่ได้ จึงไม่เก็บใน repo)
+wordseg-bench/
+data/
+
+# ผลตัดคำทั้งข้อความ ไฟล์ละราว 3 MB สร้างใหม่ได้ด้วย bench.py
+results/*.tokens.txt

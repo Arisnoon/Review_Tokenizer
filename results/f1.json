@@ -1,0 +1,102 @@
+{
+ "system": "iapp-ai 2.0.0",
+ "date": "2026-11-23",
+ "sets": [
+  "tud",
+  "pud",
+  "ws160",
+  "vistec"
+ ],
+ "units": {
+  "long": {
+   "word_f1": {
+    "tud": 83.69,
+    "pud": 86.2,
+    "ws160": 85.69,
+    "vistec": 92.73
+   },
+   "boundary_f1": {
+    "tud": 92.91,
+    "pud": 94.24,
+    "ws160": 92.3,
+    "vistec": 96.58
+   },
+   "average_word_f1": 87.08,
+   "average_boundary_f1": 94.01,
+   "published_word_f1": {
+    "tud": 83.7099,
+    "pud": 86.179,
+    "ws160": 85.5143,
+    "vistec": 92.7714
+   },
+   "published_average_word_f1": 87.0436,
+   "extra": {
+    "talpco_tha": {
+     "word_f1": 88.69,
+     "boundary_f1": 95.09,
+     "lines": 1368
+    }
+   }
+  },
+  "short": {
+   "word_f1": {
+    "tud": 90.23,
+    "pud": 84.64,
+    "ws160": 88.53,
+    "vistec": 87.9
+   },
+   "boundary_f1": {
+    "tud": 95.88,
+    "pud": 93.6,
+    "ws160": 94.14,
+    "vistec": 94.43
+   },
+   "average_word_f1": 87.82,
+   "average_boundary_f1": 94.51,
+   "published_word_f1": {
+    "tud": 90.265,
+    "pud": 84.6602,
+    "ws160": 88.3232,
+    "vistec": 87.9392
+   },
+   "published_average_word_f1": 87.7969,
+   "extra": {
+    "talpco_tha": {
+     "word_f1": 92.96,
+     "boundary_f1": 96.99,
+     "lines": 1368
+    }
+   }
+  },
+  "minimal": {
+   "word_f1": {
+    "tud": 85.36,
+    "pud": 80.35,
+    "ws160": 84.04,
+    "vistec": 76.47
+   },
+   "boundary_f1": {
+    "tud": 93.89,
+    "pud": 91.69,
+    "ws160": 92.09,
+    "vistec": 88.51
+   },
+   "average_word_f1": 81.56,
+   "average_boundary_f1": 91.54,
+   "published_word_f1": {
+    "tud": 85.3601,
+    "pud": 80.3433,
+    "ws160": 84.0772,
+    "vistec": 76.4813
+   },
+   "published_average_word_f1": 81.5655,
+   "extra": {
+    "talpco_tha": {
+     "word_f1": 92.15,
+     "boundary_f1": 96.66,
+     "lines": 1368
+    }
+   }
+  }
+ }
+}

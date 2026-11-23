@@ -1,0 +1,77 @@
+{
+ "device": "dml",
+ "hardware": {
+  "cpu": "AMD Ryzen 7 5700G with Radeon Graphics",
+  "cpu_logical_cores": 16,
+  "gpu": "NVIDIA GeForce RTX 3080, 12288 MiB, 560.94",
+  "os": "Windows 10",
+  "python": "3.11.9"
+ },
+ "onnxruntime": "1.24.4",
+ "providers": [
+  "DmlExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "threads": 1,
+ "lines": 3591,
+ "chars": 1000019,
+ "load_seconds": 0.5361893000008422,
+ "repeats": 3,
+ "runs": [
+  {
+   "mode": "one line per call",
+   "seconds": 41.34303390000059,
+   "chars_per_second": 24188.331277738806,
+   "seconds_per_million_chars": 41.34224839728105
+  },
+  {
+   "mode": "batch (4,096 chars)",
+   "seconds": 18.78430180000214,
+   "chars_per_second": 53236.95342245226,
+   "seconds_per_million_chars": 18.783944905048944
+  },
+  {
+   "mode": "batch (32,768 chars)",
+   "seconds": 18.11848370000007,
+   "chars_per_second": 55193.3051660386,
+   "seconds_per_million_chars": 18.11813945535042
+  },
+  {
+   "mode": "batch (131,072 chars)",
+   "seconds": 17.147463000001153,
+   "chars_per_second": 58318.7728703618,
+   "seconds_per_million_chars": 17.147137204394273
+  }
+ ],
+ "node_placement": {
+  "DmlExecutionProvider": {
+   "nodes": 30,
+   "ms": 227.8,
+   "ops": {
+    "Transpose": 70,
+    "Unsqueeze": 42,
+    "MemcpyFromHost": 42,
+    "DmlFusedConv": 42,
+    "Cast": 28,
+    "Gather": 28,
+    "Concat": 28,
+    "MemcpyToHost": 28,
+    "Reshape": 28,
+    "Shape": 14,
+    "Range": 14,
+    "Less": 14,
+    "Mul": 14,
+    "DynamicQuantizeLinear": 14,
+    "MatMulIntegerToFloat": 14
+   }
+  },
+  "CPUExecutionProvider": {
+   "nodes": 3,
+   "ms": 727.5,
+   "ops": {
+    "DynamicQuantizeLSTM": 28,
+    "Gather": 14
+   }
+  }
+ }
+}
